@@ -1,0 +1,6 @@
+<h1>Product list</h1>
+<ul>
+  <!-- async pipe -->
+  <li *ngFor="let product of asyncProducts | async">{{ product.name }} - <a [routerLink]="['/products',product.id]">Details</a></li>
+  <!--<li *ngFor="let product of products">{{ product.name }} - <a [routerLink]="['/products',product.id]">Details</a></li>-->
+</ul>
