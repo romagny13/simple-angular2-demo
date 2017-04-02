@@ -20,14 +20,14 @@ export class ProductService {
   }
 
   getProductsP(): Promise<Product[]> {
-    return this.http.get('api/products.json') // returns an observable
+    return this.http.get('api/products') // returns an observable
       .toPromise()
       .then(response => <Product[]>response.json().data)
       .catch((error) => Promise.reject('Cannot load products'));
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get('api/products.json')
+    return this.http.get('api/products')
       .map((response: Response) => <Product[]>response.json().data)
       .do((data) => console.log(data))
       .catch((error) => this.handleError(error));
